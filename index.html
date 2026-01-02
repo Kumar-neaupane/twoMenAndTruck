@@ -338,7 +338,18 @@
           <h1 class=" font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-[44px] uppercase leading-snug">Professional Movers You Can Trust</h1>
           <p class="text-sm sm:text-base md:text-lg lg:text-[22px] mt-2 sm:mt-3">Need some reassurance? Read reviews from hundreds of satisfied customers.</p>
         </div>
-        <div class="box flex gap-4 sm:gap-6 md:gap-10 flex-row justify-start overflow-x-auto pb-4 px-4 sm:px-8 md:ml-80 mt-6 sm:mt-10">
+        <!-- Carousel Container -->
+        <div class="relative mt-6 sm:mt-10">
+          <!-- Previous Button -->
+          <button id="prevBtn" class="absolute left-2 sm:left-6 md:left-10 top-1/2 -translate-y-1/2 z-10 bg-transparent border-none text-white hover:text-yellow-500 transition-colors duration-300 cursor-pointer">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25 30L15 20L25 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <!-- Carousel Wrapper -->
+          <div class="box overflow-hidden pb-4 ml-12 sm:ml-16 md:ml-80">
+            <div id="carouselTrack" class="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out">
           <div class="box1 bg-[#000000] text-white min-w-[280px] sm:w-[350px] h-auto sm:h-[180px] flex-shrink-0 p-3 sm:p-4 shadow-[0_5px_10px_rgba(255,255,255,0.35)] ">
             <div class="nameAnddate flex justify-between pb-2">
               <h1 class="uppercase font-[900] text-lg sm:text-[24px]">Joseph</h1>
@@ -387,6 +398,7 @@
               <p class="text-xs sm:text-sm leading-snug">Want to do the packing yourself? We offer a variety </p>
             </div>
           </div>
+          <!----
              <div class="box4 bg-[#000000] text-white min-w-[280px] sm:w-[400px] h-auto sm:h-[340px] flex-shrink-0 p-3 sm:p-4 shadow-[0_5px_10px_rgba(255,255,255,0.35)] ">
             <div class="nameAnddate flex justify-between pb-2">
               <h1 class="uppercase font-[900] text-lg sm:text-[24px]">Joseph</h1>
@@ -402,7 +414,16 @@
               </div>
               <p class="text-xs sm:text-sm leading-snug">Want to do the packing yourself? We offer a variety Want to do the packing yourself? We offer a variety Want to do the packing yourself? We offer a varietyWant to do the packing yourself? We offer a variety Want to do the packing yourself? We offer a varietyWant to do the packing yourself? We offer a variety </p>
             </div>
+          </div> --->
+            </div>
           </div>
+          
+          <!-- Next Button -->
+          <button id="nextBtn" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-transparent border-none text-white hover:text-yellow-500 transition-colors duration-300 cursor-pointer">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 30L25 20L15 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
        <div class="btn w-full flex justify-center pb-6 sm:pb-8 px-4">
          <button
@@ -651,5 +672,54 @@
         </div>
       </div>
     </footer>
+    <!---Sidebar-->
+    <section class="sidebar">
+      <div class="mainmenu">
+
+      </div>
+
+    </section>
+    
+    <script>
+      // Review Carousel JavaScript
+      const carouselTrack = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      let currentIndex = 0;
+      const cards = carouselTrack.children;
+      const totalCards = cards.length;
+      
+      // Calculate card width + gap
+      function getCardWidth() {
+        const card = cards[0];
+        const gap = window.innerWidth >= 640 ? 24 : 16; // sm:gap-6 or gap-4
+        return card.offsetWidth + gap;
+      }
+      
+      function updateCarousel() {
+        const cardWidth = getCardWidth();
+        const offset = currentIndex * cardWidth;
+        carouselTrack.style.transform = `translateX(-${offset}px)`;
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        // Allow scrolling until the last card is visible
+        if (currentIndex < totalCards - 3) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      
+      // Update on window resize
+      window.addEventListener('resize', updateCarousel);
+    </script>
   </body>
 </html>

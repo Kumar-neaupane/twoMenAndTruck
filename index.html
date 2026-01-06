@@ -11,40 +11,58 @@
     ></script>
   </head>
   <body>
-    <header>
-    <div class="main font-sans">
-      <div
-        class="top-bar bg-[linear-gradient(90deg,rgba(0,6,8,1)_0%,rgba(79,92,84,1)_100%,rgba(115,114,108,1)_100%)] text-white gap-2 sm:gap-4 p-2.5 sm:p-3 flex justify-between sm:justify-start sm:gap-8 items-center flex-wrap font-family:futura-pt,arial,helvetica,sans-serif text-xs sm:text-sm"
-      >
-        <div class="flex items-center gap-1.5 sm:gap-2">
-          <i class="fa-solid fa-location-dot text-[#F2A900] text-base sm:text-lg"></i>
-          <a href="#" class="font-black hover:text-[#F2A900] transition">FIND A LOCATION</a>
-        </div>
-        <div class="hidden sm:flex items-center gap-1.5 sm:gap-2 border-l border-white/30 pl-6 sm:pl-8">
-          <i class="fa-solid fa-phone text-[#F2A900] text-base sm:text-lg"></i>
-          <a href="tel:+18777200411" class="font-semibold hover:text-[#F2A900] transition">877.720.0411</a>
+    <div class="main font-sans"></div>
+   <header
+    id="header"
+    class="fixed top-0 left-0 w-full z-50 transition-transform duration-300"
+  >
+
+    <!-- TOP BAR -->
+    <div
+      id="topBar"
+      class="bg-[linear-gradient(90deg,rgba(0,6,8,1)_0%,rgba(79,92,84,1)_100%)]
+             text-white p-3 flex items-center text-sm"
+    >
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-location-dot text-[#F2A900]"></i>
+        <span class="font-black">FIND A LOCATION</span>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-2 ">
+        <i class="fa-solid fa-phone text-[#F2A900] pl-2"></i>
+        <span>877.720.0411</span>
+      </div>
+    </div>
+
+    <!-- NAV BAR -->
+    <div
+      class="bg-black text-white flex items-center justify-between
+             px-4 py-4 border-b border-gray-600"
+    >
+      <img src="./images/logo.jpeg" class="h-12" alt="Logo">
+
+      <div class="flex items-center gap-6">
+        <button
+          class="bg-[#F2A900] text-black font-bold px-4 py-2"
+        >
+          FREE QUOTE
+        </button>
+
+        <div id="hamburgerMenu" class="flex flex-col items-center gap-1 border-l pl-4 cursor-pointer">
+          <i class="fa-solid fa-bars"></i>
+          <span class="text-xs font-black uppercase">Menu</span>
         </div>
       </div>
-      <!-- Navigation Bar-->
-      <div
-        class="bg-[#000000] text-white flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4 border-b border-gray-600 w-full gap-2 sm:gap-4"
-      >
-       <img src="./images/logo.jpeg" alt="Two Men and a Truck logo" class="h-10 sm:h-14 w-auto drop-shadow-lg">
-        <div class="flex items-center gap-3 sm:gap-6">
-          <button
-            class="bg-[#F2A900] text-black font-bold text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 rounded-sm shadow-sm hover:brightness-95 transition"
-          >
-            FREE QUOTE
-          </button>
-          <div
-            class="icons flex flex-col items-center gap-1 border-l border-white-600 pl-3 sm:pl-4"
-          >
-            <i class="fa-solid fa-bars text-lg sm:text-xl"></i>
-            <span class="text-[10px] sm:text-xs uppercase tracking-wide font-black">Menu</span>
-          </div>
-        </div>
-      </div>
-      </header>
+    </div>
+
+  </header>
+
+  <!-- SPACER (VERY IMPORTANT) -->
+  
+
+<!-- PAGE SPACER -->
+<div class="h-[120px]"></div>
+
 
       <main>
         <section>
@@ -672,13 +690,143 @@
         </div>
       </div>
     </footer>
+    <!-- Dark Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity duration-300"></div>
+    
     <!---Sidebar-->
-    <section class="sidebar">
-      <div class="mainmenu">
+    <section id="sidebar"
+      class="sidebar fixed top-0 right-0 w-full md:w-[500px] lg:w-[700px] flex flex-col h-[100vh] ml-auto bg-black drop-shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+    >
+      <div
+        class="mainmenu bg-[#294A93] flex justify-between items-center p-6 sm:p-8 lg:p-10 md:p-8 text-white"
+      >
+        <h1 class="text-white text-[33px]">MAIN MENU</h1>
+        <h2 id="closeSidebar" class="flex flex-col items-center pt-2 font-[900] text-[14px] cursor-pointer hover:shadow-lg hover:brightness-110 hover:bg-neutral-500 p-1 rounded-sm ">
+          <i class="fa-solid fa-xmark uppercase tetx-[33px]"></i><span class="">CLOSE</span>
+        </h2>
+      </div>
+      <!--Search bar-->
+      <div
+        class="searchbar bg-[#333333] w-[90%] md:w-[400px] lg:w-[600px] mx-auto text-white flex items-center justify-between rounded-lg -mt-5 px-4 py-3 hover:border-3 hover:border-yellow-500 hover:cursor-pointer"
+      >
+        <span class="uppercase tracking-wide">search</span>
 
+        <i class="fa-solid fa-magnifying-glass text-lg text-gray-500"></i>
       </div>
 
+      <!--list items-->
+      <div
+        class="listItems text-white w-[90%] md:w-[400px] lg:w-[600px] mx-auto py-4 font-[700] text-[20px]"
+      >
+        <ul>
+           <li class="group cursor-pointer"><a href="contact.html">
+            <div
+              class="py-4 flex justify-between items-center hover:text-yellow-500"
+            >
+              <span>MOVING</span>
+              <i
+                class="fa-solid fa-greater-than text-[#A8BBA3] text-[12px] group-hover:text-yellow-500"
+              ></i>
+            </div>
+
+            <div class="relative h-[2px] bg-gray-600 overflow-hidden">
+              <span
+                class="absolute left-1/2 top-0 h-full w-0 bg-yellow-500 -translate-x-1/2 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </div>
+            </a>
+          </li>
+
+          <li class="group cursor-pointer"><a href="contact.html">
+            <div
+              class="py-4 flex justify-between items-center hover:text-yellow-500"
+            >
+              <span>JUNK REMOVAL</span>
+             
+            </div>
+
+            <div class="relative h-[2px] bg-gray-600 overflow-hidden">
+              <span
+                class="absolute left-1/2 top-0 h-full w-0 bg-yellow-500 -translate-x-1/2 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </div>
+            </a>
+          </li>
+
+           <li class="group cursor-pointer"><a href="contact.html">
+            <div
+              class="py-4 flex justify-between items-center hover:text-yellow-500"
+            >
+              <span>STORAGE</span>
+              <i
+                class="fa-solid fa-greater-than text-[#A8BBA3] text-[12px] group-hover:text-yellow-500"
+              ></i>
+            </div>
+
+            <div class="relative h-[2px] bg-gray-600 overflow-hidden">
+              <span
+                class="absolute left-1/2 top-0 h-full w-0 bg-yellow-500 -translate-x-1/2 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </div>
+            </a>
+          </li>
+           <li class="group cursor-pointer"><a href="contact.html">
+            <div
+              class="py-4 flex justify-between items-center hover:text-yellow-500"
+            >
+              <span>REVIEW</span>
+             
+            </div>
+
+            <div class="relative h-[2px] bg-gray-600 overflow-hidden">
+              <span
+                class="absolute left-1/2 top-0 h-full w-0 bg-yellow-500 -translate-x-1/2 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </div>
+            </a>
+          </li>
+          <li class="group cursor-pointer"><a href="contact.html">
+            <div
+              class="py-4 flex justify-between items-center hover:text-yellow-500"
+            >
+              <span>RESOURCES</span>
+              <i
+                class="fa-solid fa-greater-than text-[#A8BBA3] text-[12px] group-hover:text-yellow-500"
+              ></i>
+            </div>
+
+            <div class="relative h-[2px] bg-gray-600 overflow-hidden">
+              <span
+                class="absolute left-1/2 top-0 h-full w-0 bg-yellow-500 -translate-x-1/2 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="button">
+          <button
+              class="group bg-[#F2A900] text-black font-black px-4 sm:px-5 md:px-6 py-2 sm:py-3 rounded-lg shadow-sm hover:brightness-95 transition uppercase tracking-wide relative overflow-hidden text-xs sm:text-sm md:text-base w-[90%] md:w-[400px] lg:w-[600px] lg:mr-[50px]  lg:ml-[50px] md:ml-[50px] sm:ml-[50px] mb-4 "
+            >
+              <span
+                class="inline-block transition-all duration-300 group-hover:-translate-x-3"
+              >
+                <strong>FREE QUOTE</strong>
+              </span>
+              <span
+                class="inline-block transition-all duration-300 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 absolute"
+              >
+                
+              </span>
+            </button>
+      </div>
+      <div class="last flex flex-row gap-4 text-white mx-[60px] p-2 text-[16px]" >
+        <h1 class=" border-b-1 border-white-600 hover:border-none">Careers<i class="fa-solid fa-arrow-up-right-from-square"></i></h1>
+        <h1 class="border-b-1 border-white-600 hover:border-none ">Own a Franchies<i class="fa-solid fa-arrow-up-right-from-square"></i></h1>
+      </div>
+  
     </section>
+  
     
     <script>
       // Review Carousel JavaScript
@@ -720,6 +868,66 @@
       
       // Update on window resize
       window.addEventListener('resize', updateCarousel);
+
+const header = document.getElementById("header");
+    const topBar = document.getElementById("topBar");
+
+    let lastScroll = 0;
+    const topBarHeight = topBar.offsetHeight;
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScroll && currentScroll > topBarHeight) {
+        // scrolling down
+        header.style.transform = `translateY(-${topBarHeight}px)`;
+      } else {
+        // scrolling up
+        header.style.transform = `translateY(0)`;
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // Sidebar Toggle Functionality
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const sidebar = document.getElementById('sidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const body = document.body;
+
+    function openSidebar() {
+      sidebar.classList.remove('translate-x-full');
+      sidebar.classList.add('translate-x-0');
+      sidebarOverlay.classList.remove('hidden');
+      body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeSidebarFunc() {
+      sidebar.classList.remove('translate-x-0');
+      sidebar.classList.add('translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+      body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Open sidebar when hamburger is clicked
+    hamburgerMenu.addEventListener('click', openSidebar);
+
+    // Close sidebar when close button is clicked
+    closeSidebar.addEventListener('click', closeSidebarFunc);
+
+    // Close sidebar when overlay is clicked
+    sidebarOverlay.addEventListener('click', closeSidebarFunc);
+
+    // Close sidebar on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !sidebar.classList.contains('translate-x-full')) {
+        closeSidebarFunc();
+      }
+    });
     </script>
+
   </body>
+
+
 </html>

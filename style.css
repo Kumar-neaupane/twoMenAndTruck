@@ -1,4 +1,6 @@
-
+:root,html,body {
+  width: 100%;
+}
 .underline-class:hover::after {
   width: 100%;
 }
